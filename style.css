@@ -1,0 +1,340 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  height: 100%;
+  width: 100%;
+  background-color: #000000;
+  position: relative;
+  overflow-x: hidden;
+  overflow: -moz-scrollbars-none; /* For Firefox */
+  -ms-overflow-style: none; /* For Internet Explorer and Edge */
+  scrollbar-width: none; /* For Firefox */
+}
+
+nav {
+  position: sticky;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 10vw;
+  font-size: 1.2vw;
+  border-bottom: 1px solid transparent;
+  color: #FFFFFF;
+}
+
+nav .logo {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 2vw;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  background: #0da347;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  color: white;
+  position: relative;
+  z-index: 1;
+}
+
+.container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('https://img.freepik.com/premium-photo/audience-auditorium-watching-presentation-stage-auditorium_1029473-20366.jpg') no-repeat center center/cover;
+  filter: blur(2px); /* Adjust the blur value */
+  z-index: -1;
+}
+
+.header, .grid, .item {
+  position: relative;
+  z-index: 1;
+}
+
+.header {
+  text-align: left;
+  height: 180px;
+  margin-top: 5px;
+  margin-bottom: 0px;
+  opacity: 5;
+  display: flex;
+  align-items: space-between;
+  padding-right: 150px;
+  gap: 30px; 
+   /*] justify-content: space-evenly;  */
+ 
+}
+
+.header h1 {
+  font-size: 3.5rem;
+  padding-left: 35px;
+  z-index: 5;
+}
+
+.header h1 p {
+  font-size: 2rem;
+  margin-left: 15px;
+  margin-bottom: 2px;
+  text-align: left;
+  padding-left: 90px;
+  padding-top: -50px;
+  color: #0c0c0c;
+  font-weight: 700;
+  
+}
+
+.header h1 p span{
+  color: #4dd63b;
+  
+}
+
+.above-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  height: 180px;
+  gap: 0px;
+  opacity: 5;
+  margin-left: 15px;
+
+}
+
+.highlight {
+  color: #8BC34A;
+  
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, 180px);
+  height: 180px;
+  gap: 0px;
+  opacity: 5;
+  
+}
+
+.item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #9CCC65;
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  
+}
+
+.about {
+  background-color: #A5D6A7;
+}
+
+.contact {
+  background-color: #D4E157;
+}
+
+.program {
+  background-color: #90A4AE;
+}
+
+.registration {
+  background-color: #DCE775;
+}
+
+.item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  
+}
+
+.down-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  height: 180px;
+  gap: 0px;
+  opacity: 5;
+  margin-left: -180px;
+}
+
+
+.stats-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 20px;
+  background-color: #1A1A1A;
+  border-radius: 10px;
+}
+
+.stat-item {
+  text-align: center;
+}
+
+.stat-item h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: #FFFFFF;
+}
+
+.stat-item p {
+  font-size: 1.2rem;
+  color: #FFFFFF;
+}
+
+.divider {
+  width: 1px;
+  height: 80px;
+  background-color: #FFFFFF;
+  margin: 0 20px;
+}
+
+@media (max-width: 768px) {
+  .stats-container {
+    flex-direction: column;
+  }
+
+  .divider {
+    display: none;
+  }
+}
+
+.event-info{
+  height: 100vh;
+  background-color: #67d434;
+  display: flex;
+  gap: 0px;
+}
+
+.event-info img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.event-info .content {
+  width: 70%;
+  padding: 20px;
+  border-left: 3px solid #000;
+  padding-top: 40px;
+}
+
+.event-info .content  h1{
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.event-info .content p{
+  font-size: 1.1rem;
+  font-weight: 540;
+  line-height: 1.5;
+}
+
+.speakers {
+  height: 60vh;
+  background-color: #050505;
+
+}
+
+.speakers h2{
+  font-size: 2rem;
+  font-weight: bold;
+  color: #fff;
+  margin-bottom: 20px;
+  padding-top: 20px;
+  text-align: center;
+}
+
+.speakers-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  height: 270px;
+  color: #fff;
+}
+
+.speaker {
+  background-color: #2d2d2d;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+}
+
+.speaker img {
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+}
+
+.speaker h3 {
+  font-size: 1.5rem;
+  margin-top: 10px;
+}
+
+.speaker p {
+  padding-top: 10px;
+  font-size: 1rem;
+  margin: 5px 0;
+}
+
+
+.sponsors-container {
+  margin-top: 2vw;
+  width: 100%;
+  overflow: hidden;
+  padding: 20px 0;
+  background-color: #000000;
+  position: relative;
+}
+
+/* Add mask effect for blurred edges */
+.sponsors-container::before,
+.sponsors-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  width: 20%;
+  height: 100%;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.sponsors-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
+
+.sponsors-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 1), rgba(0, 0, 0, 0));
+}
