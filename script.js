@@ -1,121 +1,96 @@
-// function loaderAnimation() {
-//   var loader = document.querySelector("#loader");
-//   setTimeout(function () {
-//     loader.style.top = "-100%";
-//   }, 6200);
-// }
+// Animate the header h1
 
-// function breakTheText() {
-//   var h1 = document.querySelector(".hero-text h1");
-//   var h1Text = h1.textContent;
-//   var splittedText = h1Text.split("");
-//   var clutter = "";
 
-//   splittedText.forEach(function (x, i) {
-//     var half = splittedText.length / 2;
-//     if (half >= i) {
-//       clutter += `<span class="a">${x}</span>`;
-//     } else {
-//       clutter += `<span class="b">${x}</span>`;
-//     }
-//   });
-//   h1.innerHTML = clutter;
-// }
 
-// function animateText() {
-//   gsap.from(".hero-text h1 .a", {
-//     y: 1000,
-//     duration: 0.6,
-//     delay: 6.5,
-//     stagger: 0.15,
-//     scrub: 1,
-//   });
+// Animate the container-2 with scroll-triggered animation
+gsap.to(".container-2", {
+  scrollTrigger: {
+    trigger: ".container-2",
+    start: "top 80%", // Animation starts when the container is 80% from the top of the viewport
+    end: "bottom 60%", // Ends when container is 60% from bottom of the viewport
+    toggleActions: "play none none reverse", // Animations play and reverse on scroll
+    scrub: 1, // Smooth scroll-triggered animation
+    markers: false // Set to 'true' if you want to see scroll trigger markers for debugging
+  },
+  opacity: 1,
+  y: 0, // Removed initial Y position for smoother rise
+  ease: "power2.out",
+});
 
-//   gsap.from(".hero-text h1 .b", {
-//     y: 1000,
-//     duration: 0.6,
-//     delay: 6.5,
-//     stagger: -0.15,
-//     scrub: 1,
-//   });
+// Animate the Speakers heading
+gsap.to(".speakers h2", {
+  scrollTrigger: {
+    trigger: ".speakers h2",
+    start: "top 85%", // Start when the heading reaches 85% of the viewport
+    end: "bottom 60%", // End when it reaches 60% of the viewport
+    toggleActions: "play none none reverse", // Triggers once
+    scrub: 1,
+    markers: false
+  },
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+});
 
-//   gsap.from(".hero-text p", {
-//     opacity: 0,
-//     duration: 1,
-//     delay: 2,
-//     y: 20,
-//     ease: "power2.out",
-//   });
-// }
+// Animate the speakers grid container
+gsap.to(".speakers-grid", {
+  scrollTrigger: {
+    trigger: ".speakers-grid",
+    start: "top 80%", 
+    end: "bottom 60%",
+    toggleActions: "play none none reverse", 
+    scrub: 1,
+    markers: false
+  },
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+});
 
-// var cursor = document.querySelector("#cursor");
+// Animate each speaker card with stagger for a cascading effect
+gsap.to(".speaker", {
+  scrollTrigger: {
+    trigger: ".speakers-grid",
+    start: "top 75%", 
+    end: "bottom 60%",
+    toggleActions: "play none none reverse", 
+    scrub: 1,
+    markers: false
+  },
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+  stagger: 0.2 // Cascading delay for each speaker
+});
 
-// function cursorAnimation() {
-//   var body = document.querySelector("body");
-//   body.addEventListener("mousemove", function (dets) {
-//     gsap.to(cursor, {
-//       x: dets.x,
-//       y: dets.y,
-//       duration: 1,
-//       ease: "back.out",
-//     });
-//   });
-// }
+// Animate speaker names
+gsap.to(".speaker h3", {
+  scrollTrigger: {
+    trigger: ".speakers-grid",
+    start: "top 70%", 
+    end: "bottom 50%",
+    toggleActions: "play none none reverse",
+    scrub: 1,
+    markers: false
+  },
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+  stagger: 0.2
+});
 
-// function imgAnimation() {
-//   var imgDivs = document.querySelectorAll(".event-box img"); // Change to imgDivs
-//   imgDivs.forEach(function (imgDiv) {
-//     imgDiv.addEventListener("mouseenter", function () {
-//       cursor.innerHTML = "View More";
-//       gsap.to(cursor, {
-//         scale: 4,
-//         opacity: 0.5,
-//       });
-//     });
-
-//     imgDiv.addEventListener("mouseleave", function () {
-//       cursor.innerHTML = "";
-//       gsap.to(cursor, {
-//         scale: 1,
-//         opacity: 1,
-//       });
-//     });
-//   });
-// }
-
-// function cursorTextAnimation() {
-//   var hero = document.querySelector(".hero .hero-text");
-//   var navHead = document.querySelector("nav h1");
-//   var h1 = document.querySelectorAll("h1");
-//   function cursorBig() {
-//     gsap.to(cursor, {
-//       height: "100px",
-//       width: "100px",
-//       duration: 0.5,
-//       filter: "blur(20px)",
-//     });
-//   }
-//   function cursorSmall() {
-//     gsap.to(cursor, {
-//       height: "18px",
-//       width: "18px",
-//       duration: 0.5,
-//       filter: "blur(0)",
-//     });
-//   }
-
-//   h1.forEach((ele) => {
-//     ele.addEventListener("mouseenter", function () {
-//       cursorBig();
-//     });
-//     ele.addEventListener("mouseleave", function () {
-//       cursorSmall();
-//     });
-//   });
-// }
-// loaderAnimation();
-// breakTheText();
-// animateText();
-// imgAnimation();
-// cursorAnimation();
-// cursorTextAnimation();
+// Animate speaker descriptions
+gsap.to(".speaker p", {
+  scrollTrigger: {
+    trigger: ".speakers-grid",
+    start: "top 65%", 
+    end: "bottom 50%",
+    toggleActions: "play none none reverse",
+    scrub: 1,
+    markers: false
+  },
+  opacity: 1,
+  y: 0,
+  ease: "power2.out",
+  stagger: 0.2
+});
